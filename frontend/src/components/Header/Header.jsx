@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const Header = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
+  // const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
