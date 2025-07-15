@@ -1,11 +1,12 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
-    name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-    cartData:{type:Object,default:{}}
-}, { minimize: false })
+  name: String,
+  email: { type: String, unique: true },
+  password: String,
+  isAdmin: { type: Boolean, default: false }  // 👈 Add this
+});
 
-const userModel = mongoose.models.user || mongoose.model("user", userSchema);
-export default userModel;
+const User = mongoose.model('User', userSchema);
+
+export default User;  // Use ES module export
