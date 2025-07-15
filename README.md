@@ -2,7 +2,7 @@ Foodies - Food Delivery App
 Foodies is a modern, full-featured food delivery application built using the MERN Stack (MongoDB, Express.js, React, Node.js), complete with Stripe integration for secure payments. It includes three interfaces: User Panel, Admin Panel, and Backend API, all designed for performance, usability, and scalability.
 
 🚀 Live Demo
-User Panel: Live Link
+User Panel: [Live Link](https://foodies-onlineorder.vercel.app/)
 
 Admin Panel: [Live Link](https://foodies-admin-nu.vercel.app/)
 
