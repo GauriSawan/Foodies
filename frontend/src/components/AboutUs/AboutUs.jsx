@@ -19,7 +19,7 @@ const AboutUs = () => {
 
   return (
     <div className='about-us' id='about-us'>
-      <motion.div 
+      <motion.div
         className="about-hero"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
@@ -47,7 +47,7 @@ const AboutUs = () => {
       </motion.div>
 
       <div className="about-content">
-        <motion.div 
+        <motion.div
           className="about-mission"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -56,30 +56,30 @@ const AboutUs = () => {
         >
           <h2>Our Mission</h2>
           <p>
-            At Tomato, we're passionate about bringing people together through delicious food. 
-            Our mission is to provide high-quality, authentic meals made with fresh ingredients 
+            At Tomato, we're passionate about bringing people together through delicious food.
+            Our mission is to provide high-quality, authentic meals made with fresh ingredients
             and served with exceptional hospitality.
           </p>
           <p>
-            We believe food should be an experience, not just a meal. That's why we carefully 
+            We believe food should be an experience, not just a meal. That's why we carefully
             source our ingredients and prepare each dish with attention to detail.
           </p>
         </motion.div>
 
-        <motion.div 
+        <motion.div
           className="about-image"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-        
+
         </motion.div>
       </div>
 
       <div className="about-stats">
         {stats.map((stat, index) => (
-          <motion.div 
+          <motion.div
             key={index}
             className="stat-card"
             initial={{ opacity: 0, y: 50 }}
@@ -102,10 +102,10 @@ const AboutUs = () => {
         >
           Meet Our <span className="highlight">Team</span>
         </motion.h2>
-        
+
         <div className="team-members">
           {team.map((member, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               className="team-card"
               initial={{ opacity: 0, y: 50 }}
@@ -120,9 +120,15 @@ const AboutUs = () => {
               <h3>{member.name}</h3>
               <p>{member.role}</p>
               <div className="social-links">
-                <a href="#"><img src={assets.facebook_icon} alt="Facebook" /></a>
-                <a href="#"><img src={assets.twitter_icon} alt="Twitter" /></a>
-                <a href="#"><img src={assets.instagram_icon} alt="Instagram" /></a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+                  <img src={assets.facebook_icon} alt="Facebook" />
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                  <img src={assets.twitter_icon} alt="Twitter" />
+                </a>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                  <img src={assets.instagram_icon} alt="Instagram" />
+                </a>
               </div>
             </motion.div>
           ))}

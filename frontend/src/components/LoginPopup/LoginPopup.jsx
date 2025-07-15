@@ -166,7 +166,11 @@ const LoginPopup = ({ setShowLogin }) => {
 
                 <div className="login-popup-condition">
                     <input type="checkbox" id="terms" required />
-                    <label htmlFor="terms">By continuing, I agree to the <a href="#">terms of use</a> & <a href="#">privacy policy</a>.</label>
+                    <label htmlFor="terms">
+                        By continuing, I agree to the
+                        <a href="/terms-of-use" target="_blank" rel="noopener noreferrer"> terms of use</a> &
+                        <a href="/privacy-policy" target="_blank" rel="noopener noreferrer"> privacy policy</a>.
+                    </label>
                 </div>
 
                 <motion.div
