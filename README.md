@@ -77,7 +77,7 @@ Tomato/
 bash
 Copy
 Edit
-git clone https://github.com/Mshandev/Food-Delivery
+git clone https://github.com/GauriSawan/Foodies.git
 cd Food-Delivery
 2. Install Dependencies
 bash
