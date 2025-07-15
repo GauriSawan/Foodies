@@ -154,4 +154,4 @@ Follow best practices and write meaningful commit messages.
 
 💬 Feedback
 Got suggestions or feedback?
-Connect with me on LinkedIn
+[Connect with me on LinkedIn](https://www.linkedin.com/in/gauri-sawant-profile)
