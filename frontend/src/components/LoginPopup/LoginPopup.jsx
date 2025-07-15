@@ -142,11 +142,6 @@ const LoginPopup = ({ setShowLogin }) => {
                             className="password-toggle-icon"
                             onClick={togglePasswordVisibility}
                         >
-                            {showPassword ? (
-                                <img src={assets.eye_open} alt="Hide password" />
-                            ) : (
-                                <img src={assets.eye_close} alt="Show password" />
-                            )}
                         </span>
                     </div>
                 </div>
