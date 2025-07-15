@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const Header = () => {
   const [isHovered, setIsHovered] = useState(false);
-  const [setScrollY] = useState(0);
+  const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,8 +21,15 @@ const Header = () => {
     }
   };
 
+  // Calculate background opacity based on scroll position (max opacity 0.8)
+  const backgroundOpacity = Math.min(scrollY / 300, 0.8);
+
   return (
-    <div className='header' id="home">
+    <div 
+      className='header' 
+      id="home"
+      style={{ backgroundColor: `rgba(0, 0, 0, ${backgroundOpacity})` }}
+    >
       <div className='header-overlay'></div>
       
       <motion.div 

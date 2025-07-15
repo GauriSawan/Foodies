@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Navbar.css';
 import { assets } from '../../assets/assets';
@@ -14,19 +14,18 @@ const Navbar = ({ setShowLogin }) => {
   const [searchQuery, setSearchQuery] = useState("");
   const { getTotalCartAmount, token, setToken } = useContext(StoreContext);
 
-  // Define your nav items here, hashes correspond to section IDs on homepage
-  const navItems = [
+  // Memoized nav items
+  const navItems = React.useMemo(() => [
     { path: "/", name: "home", label: "Home" },
-    
     { hash: "#explore-menu", name: "menu", label: "Menu" },
     { hash: "#about-us", name: "about", label: "About Us" },
     { hash: "#blog", name: "blog", label: "Blog" },
     { hash: "#contact-us", name: "contact", label: "Contact Us" },
     { hash: "#app-download", name: "mob-app", label: "Mobile App" }
-  ];
+  ], []);
 
-  // Determine active menu based on route and hash
-  const getActiveMenu = () => {
+  // Memoized getActiveMenu with location dependency
+  const getActiveMenu = useCallback(() => {
     const path = location.pathname;
     const hash = location.hash.toLowerCase();
 
@@ -45,16 +44,16 @@ const Navbar = ({ setShowLogin }) => {
     if (path === '/myorders') return 'orders';
     if (path.startsWith('/search')) return '';
     return '';
-  };
+  }, [location]);
 
   const [activeMenu, setActiveMenu] = useState(getActiveMenu());
 
-  // Update active menu when route changes
+  // Update activeMenu on location change
   useEffect(() => {
     setActiveMenu(getActiveMenu());
-  }, [location]);
+  }, [getActiveMenu]);
 
-  // Scroll listener to update isScrolled
+  // Scroll listener for navbar shadow
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
@@ -63,14 +62,14 @@ const Navbar = ({ setShowLogin }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Scroll spy effect: update active menu on scroll for home page sections
+  // Scroll spy to update active menu on scroll (only on home page)
   useEffect(() => {
-    if (location.pathname !== '/') return; // Only on home page
+    if (location.pathname !== '/') return;
 
     const handleScrollSpy = () => {
-      const scrollPos = window.scrollY + 150; // Adjust offset as needed
+      const scrollPos = window.scrollY + 150;
 
-      let currentActive = 'home'; // default to home
+      let currentActive = 'home';
 
       navItems.forEach(({ hash, name }) => {
         if (hash) {
@@ -87,8 +86,6 @@ const Navbar = ({ setShowLogin }) => {
     };
 
     window.addEventListener('scroll', handleScrollSpy);
-
-    // Run on mount to set correct active menu
     handleScrollSpy();
 
     return () => {
@@ -96,7 +93,6 @@ const Navbar = ({ setShowLogin }) => {
     };
   }, [location.pathname, activeMenu, navItems]);
 
-  // Logout handler
   const logout = () => {
     localStorage.removeItem("token");
     setToken("");
@@ -119,7 +115,6 @@ const Navbar = ({ setShowLogin }) => {
     }
   };
 
-  // Handle anchor link clicks (smooth scroll or navigate)
   const handleAnchorClick = (e, hash) => {
     e.preventDefault();
     closeAllMenus();
@@ -133,7 +128,6 @@ const Navbar = ({ setShowLogin }) => {
     }
   };
 
-  // Scroll to section if navigated from another page with state
   useEffect(() => {
     if (location.state?.scrollTo) {
       const element = document.querySelector(location.state.scrollTo);
@@ -267,8 +261,8 @@ const Navbar = ({ setShowLogin }) => {
                     className="navbar-profile-dropdown"
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    // exit={{ opacity: 0, y: -20 }}
-                    // transition={{ duration: 0.2 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.2 }}
                   >
                     <motion.li 
                       onClick={() => { 
