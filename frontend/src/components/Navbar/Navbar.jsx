@@ -247,15 +247,23 @@ const Navbar = ({ setShowLogin }) => {
               </svg>
             </motion.button>
           ) : (
+
+          //   <div className="navbar-profile">
+          //   <img src={assets.profile_icon} alt="" />
+          //   <ul className="nav-profile-dropdown">
+          //     <li onClick={()=>navigate("/myorders")}><img src={assets.bag_icon} alt="" /><p>Orders</p></li>
+          //     <hr />
+          //     <li onClick={logout}><img src={assets.logout_icon} alt="" /><p>Logout</p></li>
+          //   </ul>
+          // </div>
+
             <div className="navbar-profile">
               <motion.img 
                 src={assets.profile_icon} 
                 alt="Profile" 
                 onClick={() => setShowProfileDropdown(!showProfileDropdown)}
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
               />
-              <AnimatePresence>
+              
                 {showProfileDropdown && (
                   <motion.ul 
                     className="navbar-profile-dropdown"
@@ -264,24 +272,6 @@ const Navbar = ({ setShowLogin }) => {
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <motion.li 
-                      onClick={() => { 
-                        navigate('/profile'); 
-                        closeAllMenus(); 
-                      }}
-                      whileHover={{ x: 5 }}
-                    >
-                      <img src={assets.profile_icon} alt="Profile" /> <p>Profile</p>
-                    </motion.li>
-                    <motion.li 
-                      onClick={() => { 
-                        navigate('/settings'); 
-                        closeAllMenus(); 
-                      }}
-                      whileHover={{ x: 5 }}
-                    >
-                      <img src={assets.settings_icon} alt="Settings" /> <p>Settings</p>
-                    </motion.li>
                     <motion.li 
                       onClick={() => { 
                         navigate('/myorders'); 
@@ -299,7 +289,7 @@ const Navbar = ({ setShowLogin }) => {
                     </motion.li>
                   </motion.ul>
                 )}
-              </AnimatePresence>
+              
             </div>
           )}
 
@@ -365,8 +355,6 @@ const Navbar = ({ setShowLogin }) => {
                 </li>
               ) : (
                 <>
-                  <li onClick={() => {navigate('/profile'); setShowMobileMenu(false);}}>Profile</li>
-                  <li onClick={() => {navigate('/settings'); setShowMobileMenu(false);}}>Settings</li>
                   <li onClick={() => {navigate('/myorders'); setShowMobileMenu(false);}}>My Orders</li>
                   <li onClick={() => {logout(); setShowMobileMenu(false);}}>Logout</li>
                 </>
