@@ -1,5 +1,5 @@
-🍅 Tomato - Food Delivery App
-Tomato is a modern, full-featured food delivery application built using the MERN Stack (MongoDB, Express.js, React, Node.js), complete with Stripe integration for secure payments. It includes three interfaces: User Panel, Admin Panel, and Backend API, all designed for performance, usability, and scalability.
+🍅 Foodies - Food Delivery App
+Foodies is a modern, full-featured food delivery application built using the MERN Stack (MongoDB, Express.js, React, Node.js), complete with Stripe integration for secure payments. It includes three interfaces: User Panel, Admin Panel, and Backend API, all designed for performance, usability, and scalability.
 
 🚀 Live Demo
 User Panel: Live Link
