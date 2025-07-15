@@ -4,7 +4,7 @@ Foodies is a modern, full-featured food delivery application built using the MER
 🚀 Live Demo
 User Panel: Live Link
 
-Admin Panel: Live Link
+Admin Panel: [Live Link](https://foodies-admin-nu.vercel.app/)
 
 ✨ Features
 👥 Customer Interface (Frontend)
