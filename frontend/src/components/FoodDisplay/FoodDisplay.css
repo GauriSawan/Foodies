@@ -1,14 +1,127 @@
-.food-display{
-    margin-top: 30px;
+/* FoodDisplay.css */
+:root {
+  --primary-color: #FF6B6B;
+  --secondary-color: #4ECDC4;
+  --accent-color: #FFE66D;
+  --dark-color: #292F36;
+  --light-color: #F7FFF7;
+  --gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 }
-.food-display h2{
-    font-size: max(2vw,24px);
-    font-weight: 600;
+
+.food-display {
+  margin-top: 60px;
+  padding: 0 8%;
 }
-.food-display-list{
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    margin-top: 30px;
+
+.food-display h2 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--dark-color);
+  margin-bottom: 10px;
+  position: relative;
+  display: inline-block;
+}
+
+.highlight {
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
+
+.food-display h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 80px;
+  height: 4px;
+  background: var(--gradient);
+  border-radius: 2px;
+}
+
+.food-display-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  margin-top: 40px;
+  gap: 40px;
+  row-gap: 60px;
+}
+
+.no-items-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+  gap: 20px;
+  text-align: center;
+}
+
+.no-items-message img {
+  width: 120px;
+  opacity: 0.7;
+}
+
+.no-items-message p {
+  font-size: 1.2rem;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Category Filter Tags */
+.category-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--light-color);
+  color: var(--primary-color);
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 8px;
+  border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .food-display {
+    padding: 0 5%;
+  }
+  
+  .food-display-list {
     gap: 30px;
     row-gap: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .food-display {
+    margin-top: 40px;
+  }
+  
+  .food-display-list {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 25px;
+    row-gap: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .food-display {
+    padding: 0 3%;
+  }
+  
+  .food-display-list {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .no-items-message {
+    min-height: 200px;
+  }
+  
+  .no-items-message img {
+    width: 80px;
+  }
 }

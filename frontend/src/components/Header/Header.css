@@ -1,56 +1,191 @@
-.header{
-    height: 34vw;
-    margin: 30px auto;
-    background-image: url('../../assets/header_img.png');
-    background-repeat: no-repeat;
-    background-size:contain;
-    position: relative;
+/* Header.css */
+:root {
+  --primary-color: #FF6B6B;
+  --secondary-color: #4ECDC4;
+  --accent-color: #FFE66D;
+  --dark-color: #292F36;
+  --light-color: #F7FFF7;
+  --gradient: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 }
-.header-contents{
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    gap: 1.5vw;
-    max-width: 50%;
-    bottom: 10%;
-    left: 6vw;
-    animation: fadeIn 3s;
+
+.header {
+  height: 90vh;
+  min-height: 600px;
+  margin: 0 auto;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url('../../assets/header_img.png') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0 8%;
+  border-radius: 0 0 20px 20px;
 }
-.header-contents h2{
-    font-weight:500;
-    color: white;
-    font-size: max(4.5vw,22px);
+
+.header-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient);
+  opacity: 0.3;
+  z-index: 1;
 }
-.header-contents p{
-    color: white;
-    font-size: 1vw;
+
+.header-contents {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  max-width: 50%;
+  z-index: 2;
 }
-.header-contents button{
-    border: none;
-    color: #747474;
-    font-weight: 500;
-    padding: 1vw 2.3vw;
-    background: white;
-    font-size: max(1vw,13px);
-    border-radius: 50px;
+
+.header-contents h2 {
+  font-weight: 700;
+  color: white;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.2;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 1rem;
 }
-@media (max-width:1050px) {
-    .header{
-        height: 38vw;
-    }
-    .header-contents{
-        max-width: 45%;
-    }
+
+.highlight {
+  color: var(--accent-color);
+  text-shadow: 0 0 10px rgba(255, 230, 109, 0.5);
 }
-@media(max-width:750px){
-    .header-contents{
-        max-width: 55%;
-    }
-    .header-contents p{
-       display: none;
-    }
-    .header-contents button{
-        padding: 2vw 4vw;
-    }
+
+.header-contents p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(0.9rem, 1.2vw, 1.2rem);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.header-contents button {
+  border: none;
+  color: var(--dark-color);
+  font-weight: 600;
+  padding: 1rem 2.5rem;
+  background: white;
+  font-size: clamp(0.9rem, 1.1vw, 1.1rem);
+  border-radius: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.header-contents button span {
+  font-size: 1.2em;
+}
+
+.header-contents button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: 0.5s;
+}
+
+.header-contents button:hover::before {
+  left: 100%;
+}
+
+.floating-elements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.floating-element {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .header {
+    padding: 0 5%;
+  }
+  
+  .header-contents {
+    max-width: 60%;
+  }
+}
+
+@media (max-width: 900px) {
+  .header {
+    height: 80vh;
+    min-height: 500px;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .header-contents {
+    max-width: 80%;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    height: 70vh;
+    min-height: 400px;
+    padding: 0 3%;
+  }
+  
+  .header-contents {
+    max-width: 90%;
+  }
+  
+  .header-contents p {
+    display: none;
+  }
+  
+  .header-contents button {
+    padding: 0.8rem 1.8rem;
+  }
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
