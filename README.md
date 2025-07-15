@@ -1,5 +1,5 @@
-🍅 Tomato - Food Delivery App
-Tomato is a modern, full-featured food delivery application built using the MERN Stack (MongoDB, Express.js, React, Node.js), complete with Stripe integration for secure payments. It includes three interfaces: User Panel, Admin Panel, and Backend API, all designed for performance, usability, and scalability.
+Foodies - Food Delivery App
+Foodies is a modern, full-featured food delivery application built using the MERN Stack (MongoDB, Express.js, React, Node.js), complete with Stripe integration for secure payments. It includes three interfaces: User Panel, Admin Panel, and Backend API, all designed for performance, usability, and scalability.
 
 🚀 Live Demo
 User Panel: Live Link
@@ -77,7 +77,7 @@ Tomato/
 bash
 Copy
 Edit
-git clone https://github.com/Mshandev/Food-Delivery
+git clone https://github.com/GauriSawan/Foodies.git
 cd Food-Delivery
 2. Install Dependencies
 bash
@@ -154,4 +154,4 @@ Follow best practices and write meaningful commit messages.
 
 💬 Feedback
 Got suggestions or feedback?
-Connect with me on LinkedIn
+Connect with me on [LinkedIn](https://www.linkedin.com/in/gauri-sawant-profile)
